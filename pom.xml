@@ -101,7 +101,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url//http://172.31.77.159:8081/repository/Paypall-FE-declarative-pipeline-Snapshot/></url>
+	      <url>//http://172.31.77.159:8081/repository/Paypall-FE-declarative-pipeline-Snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
