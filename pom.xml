@@ -6,7 +6,7 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	
-	<version>0.0.1-SNAPSHOT</version> 
+	<version>0.0.2</version> 
 	
 	<name>maven-web-application</name>
 
@@ -95,13 +95,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://172.31.77.159:8081/repository/tesla-FE-releases-prod/</url>
+	      <url>//http://172.31.77.159:8081/repository/Paypall-FE-declarative-pipeline-Releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://172.31.77.159:8081/repository/tesla-FE-snapshots-prod/</url>
+	      <url//http://172.31.77.159:8081/repository/Paypall-FE-declarative-pipeline-Snapshot/></url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
