@@ -1,0 +1,46 @@
+//declarative Jenkinsfile
+pipeline{
+  agent any 
+  tools {
+    maven "maven3.8.7"
+  }  
+  stages {
+    stage('1GetCode'){
+      steps{
+        sh "echo 'cloning the latest application version' "
+        git "https://github.com/Zemai/maven-web-application"
+      }
+    }
+    stage('2Test+Build'){
+      steps{
+        sh "echo 'running JUnit-test-cases' "
+        sh "echo 'testing must passed to create artifacts ' "
+        sh "mvn clean package"
+      }
+    }
+  
+   stage('3CodeQuality'){
+      steps{
+        sh "echo 'Perfoming CodeQualityAnalysis' "
+        sh "mvn sonar:sonar"
+      }
+    } 
+    stage('4uploadNexus'){
+      steps{
+        sh "mvn deploy"
+      }
+    }  
+     stage('5deploy2prod'){
+      steps{
+        deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://172.31.91.126:8080/')], contextPath: null, onFailure: false, war: 'target/*war'
+    }     
+  }
+}
+post{
+    always{
+      emailext body: '''Hey guys
+        Please check build status
+        Please check build status"''', recipientProviders: [buildUser(), developers(), requestor(), brokenBuildSuspects(), brokenTestsSuspects(), upstreamDevelopers()], subject: 'Build status', to: 'umahoin@outlook.com'
+   }
+}
+}
